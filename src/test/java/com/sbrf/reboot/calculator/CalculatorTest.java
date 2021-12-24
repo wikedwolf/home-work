@@ -27,6 +27,22 @@ class CalculatorTest {
     }
 
     @Test
+    void getPower() {
+        assertEquals(9, new Calculator().getPower(3));
+    }
+
+    @Test
+    void getArraySumm() {
+        int[] inp = {1, 2, 3};
+        assertEquals(6, new Calculator().getArraySumm(inp));
+    }
+
+    @Test
+    void getFactorial() {
+        assertEquals(120, new Calculator().getFactorial(5));
+    }
+
+    @Test
     void classHasSevenMethods() {
         assertEquals(7, Calculator.class.getMethods().length - Object.class.getMethods().length);
     }
