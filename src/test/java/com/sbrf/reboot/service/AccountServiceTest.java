@@ -63,4 +63,18 @@ class AccountServiceTest {
         assertEquals(2, AccountService.class.getMethods().length - Object.class.getMethods().length);
     }
 
+    @Test
+    void countClientsByContract() {
+        Set<Long> accounts = new HashSet();
+        accounts.add(1234L);
+        accounts.add(2134L);
+        accounts.add(3124L);
+        accounts.add(4123L);
+        long contractNumber = 567L;
+
+        when(accountRepository.getAllAccountsByContractNumber(contractNumber)).thenReturn(accounts);
+
+        assertEquals(accountService.getClientsHasContractCount(contractNumber), 4);
+    }
+
 }
